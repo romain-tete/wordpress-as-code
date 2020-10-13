@@ -1,0 +1,12 @@
+{
+  "name": "ivresse-du-palais/wordpress",
+  "version": "1.0.0",
+  "description": "Ivresse du palais online store",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {}
+}
