@@ -26,3 +26,5 @@ From the root of this project run:
 ```bash
 docker-compose up
 ```
+
+Once started, the website should be reachable at http://localhost:8080
