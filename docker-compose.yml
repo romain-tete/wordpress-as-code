@@ -2,8 +2,11 @@ version: "3.8"
 services:
   website:
     build: .
+    user: "wordpress:wordpress"
     ports:
       - 8080:80
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: 0
     volumes:
       - "./src:/var/www/html/"
     secrets:
@@ -18,6 +21,7 @@ services:
       - local
   database:
     image: mariadb
+    user: "mysql:mysql"
     ports:
       - 3306:3306
     restart: always
@@ -25,7 +29,7 @@ services:
       MYSQL_ROOT_PASSWORD_FILE: "/run/secrets/root_password"
     volumes:
       - dbdata:/var/lib/mysql
-      - "./conf/.my.cnf:/root/.my.cnf"
+      - "./conf/.my.cnf:/home/mysql/.my.cnf"
     secrets:
       - root_password
     networks:
